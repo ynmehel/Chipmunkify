@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="996" y="-405"/>
         </scene>
-        <!--Play Sounds View Controller-->
+        <!--Play-->
         <scene sceneID="Jec-vC-vtk">
             <objects>
-                <viewController id="6Kk-Hh-O1q" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Play" id="6Kk-Hh-O1q" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UwY-6y-GxR"/>
                         <viewControllerLayoutGuide type="bottom" id="bpF-hd-RwG"/>
