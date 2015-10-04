@@ -25,6 +25,8 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var sliderForRate: UISlider!
     @IBOutlet weak var sliderForPitch: UISlider!
 
+    @IBOutlet weak var playStopButton: UIButton!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -38,36 +40,23 @@ class PlaySoundsViewController: UIViewController {
         sliderForRate.maximumValue = kMaxAllowedPowerForRate
         
     }
+    
+    @IBAction func tappedReset(sender: UIButton) {
+        
+        self.sliderForPitch.value = kDefaultPitch
+        self.sliderForRate.value = kDefaultPowerForRate
+    }
 
     @IBAction func tappedPlayButton(sender: UIButton) {
-        
-        var rate = powf(2,sliderForRate.value) //See AVAudioUnitTimePitch.rate (1/32 <> 32)
+
+        audioEngine.stop()
+        var rate = powf(2,sliderForRate.value) //See AVAudioUnitTimePitch.rate (1/32 - 32)
         var pitch = sliderForPitch.value
         playAudio(rate: rate, pitch: pitch)
     }
     
-    @IBAction func tappedSlowPlay(sender: UIButton) {
-
-        playAudio(rate: -300, pitch: -900)
-    }
-
-    @IBAction func tappedChipmunk(sender: UIButton) {
+    @IBAction func tappedStopButton(sender: UIButton) {
         
-        playAudio(rate: 1, pitch: 900)
-    }
-    
-    @IBAction func tappedVader(sender: UIButton) {
-        
-        playAudio(rate: 1, pitch: -900)
-    }
-    
-    @IBAction func tappedFastPlay(sender: AnyObject) {
-
-        playAudio(rate: 500, pitch: -900)
-    }
-    
-    @IBAction func stop(sender: AnyObject) {
-
         audioEngine.stop()
     }
     
@@ -91,5 +80,26 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.startAndReturnError(nil)
         
         audioPlayerNode.play()
+    }
+    
+    // MARK: - Quick Buttons
+    @IBAction func tappedSlowPlay(sender: UIButton) {
+        
+        playAudio(rate: -300, pitch: -900)
+    }
+    
+    @IBAction func tappedChipmunk(sender: UIButton) {
+        
+        playAudio(rate: 1, pitch: 900)
+    }
+    
+    @IBAction func tappedVader(sender: UIButton) {
+        
+        playAudio(rate: 1, pitch: -900)
+    }
+    
+    @IBAction func tappedFastPlay(sender: AnyObject) {
+        
+        playAudio(rate: 500, pitch: -900)
     }
 }
