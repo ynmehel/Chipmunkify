@@ -9,10 +9,6 @@
 import UIKit
 import AVFoundation
 
-let kMinAllowedPitch:Float = -2400
-let kMaxAllowedPitch:Float = 2400
-let kMinAllowedPowerForRate:Float = -5
-let kMaxAllowedPowerForRate:Float = 5
 let kDefaultPitch:Float = 1
 let kDefaultPowerForRate:Float = 0
 
@@ -33,12 +29,6 @@ class PlaySoundsViewController: UIViewController {
         
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
-        
-        sliderForPitch.minimumValue = kMinAllowedPitch
-        sliderForPitch.maximumValue = kMaxAllowedPitch
-        sliderForRate.minimumValue = kMinAllowedPowerForRate
-        sliderForRate.maximumValue = kMaxAllowedPowerForRate
-        
     }
     
     @IBAction func tappedReset(sender: UIButton) {
@@ -85,21 +75,21 @@ class PlaySoundsViewController: UIViewController {
     // MARK: - Quick Buttons
     @IBAction func tappedSlowPlay(sender: UIButton) {
         
-        playAudio(rate: -300, pitch: -900)
+        playAudio(rate: 0.25, pitch:1)
     }
     
     @IBAction func tappedChipmunk(sender: UIButton) {
         
-        playAudio(rate: 1, pitch: 900)
+        playAudio(rate: 1.30, pitch: 1200)
     }
     
     @IBAction func tappedVader(sender: UIButton) {
         
-        playAudio(rate: 1, pitch: -900)
+        playAudio(rate: 0.80, pitch: -900)
     }
     
     @IBAction func tappedFastPlay(sender: AnyObject) {
         
-        playAudio(rate: 500, pitch: -900)
+        playAudio(rate: 2, pitch:1)
     }
 }
