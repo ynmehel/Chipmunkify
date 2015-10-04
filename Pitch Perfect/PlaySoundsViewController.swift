@@ -9,55 +9,71 @@
 import UIKit
 import AVFoundation
 
+let kMinAllowedPitch:Float = -2400
+let kMaxAllowedPitch:Float = 2400
+let kMinAllowedPowerForRate:Float = -5
+let kMaxAllowedPowerForRate:Float = 5
+let kDefaultPitch:Float = 1
+let kDefaultPowerForRate:Float = 0
+
 class PlaySoundsViewController: UIViewController {
 
-    var player:AVAudioPlayer!
     var receivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
     var audioFile: AVAudioFile!
     
+    @IBOutlet weak var sliderForRate: UISlider!
+    @IBOutlet weak var sliderForPitch: UISlider!
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        player = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
-        player.enableRate = true
+        
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
-
+        
+        sliderForPitch.minimumValue = kMinAllowedPitch
+        sliderForPitch.maximumValue = kMaxAllowedPitch
+        sliderForRate.minimumValue = kMinAllowedPowerForRate
+        sliderForRate.maximumValue = kMaxAllowedPowerForRate
+        
     }
 
+    @IBAction func tappedPlayButton(sender: UIButton) {
+        
+        var rate = powf(2,sliderForRate.value) //See AVAudioUnitTimePitch.rate (1/32 <> 32)
+        var pitch = sliderForPitch.value
+        playAudio(rate: rate, pitch: pitch)
+    }
+    
     @IBAction func tappedSlowPlay(sender: UIButton) {
 
-        player.rate = 0.2
-        player.play()
+        playAudio(rate: -300, pitch: -900)
     }
 
     @IBAction func tappedChipmunk(sender: UIButton) {
         
-//        commonAudioFunction(1000, typeOfChange: "pitch")
-        commonAudioFunction(900, typeOfChange: "pitch")
+        playAudio(rate: 1, pitch: 900)
     }
     
     @IBAction func tappedVader(sender: UIButton) {
         
-        //        commonAudioFunction(1000, typeOfChange: "pitch")
-        commonAudioFunction(-900, typeOfChange: "pitch")
+        playAudio(rate: 1, pitch: -900)
     }
     
     @IBAction func tappedFastPlay(sender: AnyObject) {
 
-        player.rate = 2.5
-        player.play()
-        
-    }
-    @IBAction func stop(sender: AnyObject) {
-        player.stop()
+        playAudio(rate: 500, pitch: -900)
     }
     
-    func commonAudioFunction(audioChangeNumber: Float, typeOfChange: String){
-        
+    @IBAction func stop(sender: AnyObject) {
+
+        audioEngine.stop()
+    }
+    
+    func playAudio(#rate: Float, pitch: Float){
+    
         var audioPlayerNode = AVAudioPlayerNode()
-        
         audioPlayerNode.stop()
         audioEngine.stop()
         audioEngine.reset()
@@ -65,15 +81,8 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.attachNode(audioPlayerNode)
         
         var changeAudioUnitTime = AVAudioUnitTimePitch()
-        
-        if (typeOfChange == "rate") {
-            
-            changeAudioUnitTime.rate = audioChangeNumber
-            
-        } else {
-            
-            changeAudioUnitTime.pitch = audioChangeNumber
-        }
+        changeAudioUnitTime.rate = rate
+        changeAudioUnitTime.pitch = pitch
         
         audioEngine.attachNode(changeAudioUnitTime)
         audioEngine.connect(audioPlayerNode, to: changeAudioUnitTime, format: nil)
@@ -82,6 +91,5 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.startAndReturnError(nil)
         
         audioPlayerNode.play()
-        
     }
 }

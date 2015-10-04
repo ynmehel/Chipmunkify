@@ -165,6 +165,32 @@
                                     <action selector="tappedVader:" destination="6Kk-Hh-O1q" eventType="touchUpInside" id="1Q3-ar-K6r"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-Bn-nFJ">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="141" y="218" width="118" height="31"/>
+                                </variation>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hS7-U3-DoL">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="153" y="425" width="118" height="31"/>
+                                </variation>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igE-bK-Qou">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="32" y="495" width="50" height="50"/>
+                                </variation>
+                                <connections>
+                                    <action selector="stop:" destination="6Kk-Hh-O1q" eventType="touchUpInside" id="1gl-hE-UKs"/>
+                                    <action selector="tappedPlayButton:" destination="6Kk-Hh-O1q" eventType="touchUpInside" id="gUo-NE-AId"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -174,6 +200,9 @@
                                 <exclude reference="Ge6-ey-8da"/>
                                 <exclude reference="4FM-7l-9MJ"/>
                                 <exclude reference="ie3-qw-Muj"/>
+                                <exclude reference="VeZ-Bn-nFJ"/>
+                                <exclude reference="hS7-U3-DoL"/>
+                                <exclude reference="igE-bK-Qou"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -183,9 +212,16 @@
                                 <include reference="Ge6-ey-8da"/>
                                 <include reference="4FM-7l-9MJ"/>
                                 <include reference="ie3-qw-Muj"/>
+                                <include reference="VeZ-Bn-nFJ"/>
+                                <include reference="hS7-U3-DoL"/>
+                                <include reference="igE-bK-Qou"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="sliderForPitch" destination="hS7-U3-DoL" id="6ad-hi-nNF"/>
+                        <outlet property="sliderForRate" destination="VeZ-Bn-nFJ" id="RqK-Cd-yxs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXV-60-D3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
