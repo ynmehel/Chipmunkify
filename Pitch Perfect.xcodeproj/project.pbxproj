@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		12C45D181BBF2A0700C1F3D2 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
-		12D0AD381BBED74700A5B3B3 /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D0AD381BBED74700A5B3B3 /* Chipmunkify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chipmunkify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D0AD3C1BBED74700A5B3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12D0AD3D1BBED74700A5B3B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D0AD3F1BBED74700A5B3B3 /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		12D0AD391BBED74700A5B3B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				12D0AD381BBED74700A5B3B3 /* Pitch Perfect.app */,
+				12D0AD381BBED74700A5B3B3 /* Chipmunkify.app */,
 				12D0AD4D1BBED74700A5B3B3 /* Pitch PerfectTests.xctest */,
 			);
 			name = Products;
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		12D0AD371BBED74700A5B3B3 /* Pitch Perfect */ = {
+		12D0AD371BBED74700A5B3B3 /* Chipmunkify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 12D0AD571BBED74700A5B3B3 /* Build configuration list for PBXNativeTarget "Pitch Perfect" */;
+			buildConfigurationList = 12D0AD571BBED74700A5B3B3 /* Build configuration list for PBXNativeTarget "Chipmunkify" */;
 			buildPhases = (
 				12D0AD341BBED74700A5B3B3 /* Sources */,
 				12D0AD351BBED74700A5B3B3 /* Frameworks */,
@@ -140,9 +140,9 @@
 			);
 			dependencies = (
 			);
-			name = "Pitch Perfect";
+			name = Chipmunkify;
 			productName = "Pitch Perfect";
-			productReference = 12D0AD381BBED74700A5B3B3 /* Pitch Perfect.app */;
+			productReference = 12D0AD381BBED74700A5B3B3 /* Chipmunkify.app */;
 			productType = "com.apple.product-type.application";
 		};
 		12D0AD4C1BBED74700A5B3B3 /* Pitch PerfectTests */ = {
@@ -194,7 +194,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				12D0AD371BBED74700A5B3B3 /* Pitch Perfect */,
+				12D0AD371BBED74700A5B3B3 /* Chipmunkify */,
 				12D0AD4C1BBED74700A5B3B3 /* Pitch PerfectTests */,
 			);
 		};
@@ -246,7 +246,7 @@
 /* Begin PBXTargetDependency section */
 		12D0AD4F1BBED74700A5B3B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 12D0AD371BBED74700A5B3B3 /* Pitch Perfect */;
+			target = 12D0AD371BBED74700A5B3B3 /* Chipmunkify */;
 			targetProxy = 12D0AD4E1BBED74700A5B3B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -356,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -367,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -420,7 +422,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12D0AD571BBED74700A5B3B3 /* Build configuration list for PBXNativeTarget "Pitch Perfect" */ = {
+		12D0AD571BBED74700A5B3B3 /* Build configuration list for PBXNativeTarget "Chipmunkify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12D0AD581BBED74700A5B3B3 /* Debug */,
